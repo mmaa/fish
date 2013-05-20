@@ -1,6 +1,13 @@
 set -g -x fish_greeting ''
 
-function bu;  brew update; and brew outdated    ; end
+function bu
+  if count $argv >/dev/null
+    brew update
+    brew outdated
+  else
+    brew upgrade $argv; and brew cleanup -f
+  end
+end
 function gb;  git branch $argv                  ; end
 function gc;  git checkout $argv                ; end
 function gd;  git diff head $argv               ; end
