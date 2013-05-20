@@ -10,7 +10,7 @@ function gg;  git add .; and git add -u; and gs ; end
 function gm;  git commit $argv                  ; end
 function gmm; git commit -m $argv               ; end
 function gpl; git pull --prune                  ; end
-function gps; git push                          ; end
+function gps; git push $argv                    ; end
 function gpz; gpl; and gps                      ; end
 function gs;  git status                        ; end
 function l;   ls -F -1 $argv                    ; end
