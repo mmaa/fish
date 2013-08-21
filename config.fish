@@ -28,7 +28,7 @@ function la;  ls -F -1 -A $argv                                 ; end
 function ll;  ls -F -A -o -h $argv                              ; end
 function tm;  tmux attach; or tmux -u                           ; end
 
-set -g -x EDITOR 'subl'
+set -g -x EDITOR 'vim'
 set -g -x PGDATA '/usr/local/var/postgres/'
 
 set -g -x PATH /usr/local/bin /usr/local/sbin $PATH
@@ -36,4 +36,7 @@ set -g -x PATH /usr/local/bin /usr/local/sbin $PATH
 set -g -x RBENV_ROOT '/usr/local/var/rbenv'
 set PATH $RBENV_ROOT/bin $PATH
 set PATH $RBENV_ROOT/shims $PATH
+
+set PATH ./bin $PATH
+
 rbenv rehash >/dev/null ^&1
