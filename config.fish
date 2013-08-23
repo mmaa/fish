@@ -1,7 +1,7 @@
 set -g -x fish_greeting ''
 
 function yt
-  screen -dm youtube-dl -f 22 -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
+  screen -dm youtube-dl -f 22/18 -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
 end
 function bu
   if count $argv >/dev/null
