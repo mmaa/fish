@@ -3,6 +3,7 @@ set -g -x fish_greeting ''
 function yt
   screen -dm youtube-dl -f 22/18 -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
 end
+
 function bu
   if count $argv >/dev/null
     brew upgrade $argv; and brew cleanup -f
@@ -10,6 +11,20 @@ function bu
     brew update; and brew outdated
   end
 end
+
+function rs
+  if test -e Procfile.local
+    foreman start -f Procfile.local
+  else if test -e Procfile.dev
+    foreman start -f Procfile.dev
+  else
+    rails server
+  end
+end
+
+function rc;  rails console                                     ; end
+function rr;  rails runner                                      ; end
+function rg;  rails generate $argv                              ; end
 
 function gb;  git branch $argv                                  ; end
 function gc;  git checkout $argv                                ; end
