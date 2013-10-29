@@ -23,17 +23,15 @@ function rs
 end
 
 function rc;  rails console                                     ; end
-function rr;  rails runner                                      ; end
+function rr;  rails runner $argv                                ; end
 function rg;  rails generate $argv                              ; end
-
 function gb;  git branch $argv                                  ; end
 function gc;  git checkout $argv                                ; end
 function gd;  git diff head $argv | tig                         ; end
 function gdi; git diff head --ignore-space-change $argv | tig   ; end
 function gdt; git difftool head $argv                           ; end
 function gg;  git add -A .; and gs                              ; end
-function gm;  git commit $argv                                  ; end
-function gmm; git commit -m $argv                               ; end
+function gm;  git commit                                        ; end
 function gpl; git pull --prune                                  ; end
 function gps; git push $argv                                    ; end
 function gpz; gpl; and gps                                      ; end
