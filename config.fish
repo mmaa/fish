@@ -1,7 +1,7 @@
 set -g -x fish_greeting ''
 
 function yt
-  screen -dm youtube-dl -f 22/18 -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
+  screen -dm youtube-dl -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
 end
 
 function bu
@@ -27,8 +27,8 @@ function rr;  rails runner $argv                                ; end
 function rg;  rails generate $argv                              ; end
 function gb;  git branch $argv                                  ; end
 function gc;  git checkout $argv                                ; end
-function gd;  git diff head $argv | tig                         ; end
-function gdi; git diff head --ignore-space-change $argv | tig   ; end
+function gd;  git diff head $argv                               ; end
+function gdi; git diff head --ignore-space-change $argv         ; end
 function gdt; git difftool head $argv                           ; end
 function gg;  git add -A .; and gs                              ; end
 function gm;  git commit                                        ; end
@@ -44,12 +44,12 @@ function tm;  tmux attach; or tmux -u                           ; end
 set -g -x EDITOR 'vim'
 set -g -x PGDATA '/usr/local/var/postgres/'
 
+# homebrew
 set -g -x PATH /usr/local/bin /usr/local/sbin $PATH
 
+# rbenv
 set -g -x RBENV_ROOT '/usr/local/var/rbenv'
 set PATH $RBENV_ROOT/bin $PATH
-set PATH $RBENV_ROOT/shims $PATH
+. (rbenv init -|psub)
 
 set PATH ./bin $PATH
-
-rbenv rehash >/dev/null ^&1
