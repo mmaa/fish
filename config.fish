@@ -4,6 +4,10 @@ function yt
   screen -dm youtube-dl -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
 end
 
+function minecraft
+  screen -dm java -d64 -Xms4G -Xmx4G -jar /Applications/Minecraft.app/Contents/Resources/Java/Bootstrap.jar
+end
+
 function bu
   if count $argv >/dev/null
     brew upgrade $argv; and brew cleanup -f
