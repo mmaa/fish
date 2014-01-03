@@ -36,6 +36,7 @@ function gdi; git diff head --ignore-space-change $argv         ; end
 function gdt; git difftool head $argv                           ; end
 function gg;  git add -A .; and gs                              ; end
 function gm;  git commit                                        ; end
+function gma; git commit --amend                                ; end
 function gpl; git pull --prune                                  ; end
 function gps; git push $argv                                    ; end
 function gpz; gpl; and gps                                      ; end
