@@ -29,6 +29,6 @@ function fish_prompt --description 'Write out the prompt'
   end
 
   set_color blue
-  echo -n ' ❱ '
+  echo -n '❱ '
   set_color normal
 end
