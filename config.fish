@@ -1,7 +1,10 @@
 set -g -x fish_greeting ''
 
 function yt
-  screen -dm youtube-dl -o "$HOME/Desktop/%(title)s.%(id)s.%(ext)s" $argv
+  if count $argv >/dev/null
+    screen -dm youtube-dl -o "$HOME/Downloads/%(title)s.%(extractor)s.%(id)s.%(ext)s" $argv
+  end
+  open "$HOME/Downloads"
 end
 
 function minecraft
