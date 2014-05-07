@@ -13,7 +13,7 @@ end
 
 function bu
   if count $argv >/dev/null
-    brew upgrade $argv; and brew cleanup -f
+    brew upgrade $argv; and brew cleanup --force
   else
     brew update; and brew outdated
   end
