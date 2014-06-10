@@ -1,10 +1,30 @@
 set -g -x fish_greeting ''
 
 function yt
+  set directory "$HOME/Downloads/"
+
   if count $argv >/dev/null
-    screen -dm youtube-dl -o "$HOME/Downloads/%(title)s.%(extractor)s.%(id)s.%(ext)s" $argv
+    screen -dm youtube-dl -o "$directory/%(title)s.%(extractor)s.%(id)s.%(ext)s" $argv
   end
-  open "$HOME/Downloads"
+
+  open $directory
+end
+
+function ff
+  set directory "$HOME/Downloads/"
+  set filetype ".mp4"
+
+  if count $argv >/dev/null
+    if [ (count $argv) -gt 1 ]
+      set filename $argv[2]
+    else
+      set filename 'output'
+    end
+
+    ffmpeg -i $argv[1] -acodec copy -vcodec copy  -y -loglevel info -absf aac_adtstoasc -f mp4 $directory$filename$filetype
+  end
+
+  open $directory
 end
 
 function minecraft
