@@ -70,6 +70,7 @@ function ll;  ls -F -A -o -h $argv                              ; end
 function tm;  tmux attach; or tmux -u                           ; end
 
 set -g -x EDITOR 'vim'
+set -g -x PAGER 'vimpager'
 set -g -x PGDATA '/usr/local/var/postgres/'
 
 # homebrew
